@@ -1,0 +1,2551 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>طريقك — نبنيو معاك طريق</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --green:#059669;
+    --green-dark:#047857;
+    --green-light:#d1fae5;
+    --amber:#f59e0b;
+    --dark:#0f172a;
+    --dark2:#1e293b;
+    --text:#172033;
+    --muted:#64748b;
+    --bg:#f8fafc;
+    --white:#fff;
+    --border:#e2e8f0;
+    --danger:#ef4444;
+}
+
+body{
+    font-family:"Cairo",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.8;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(15,23,42,.96);
+    backdrop-filter:blur(15px);
+    color:white;
+    padding:12px 18px;
+}
+
+.nav-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:22px;
+}
+
+.logo-icon{
+    width:40px;
+    height:40px;
+    background:linear-gradient(135deg,var(--green),#10b981);
+    border-radius:13px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.nav-links{
+    display:flex;
+    gap:8px;
+}
+
+.nav-links button{
+    background:transparent;
+    color:#cbd5e1;
+    padding:8px 12px;
+    border-radius:10px;
+    transition:.2s;
+}
+
+.nav-links button:hover{
+    background:#334155;
+    color:white;
+}
+
+.mobile-menu{
+    display:none;
+}
+
+/* GENERAL */
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+.page{
+    min-height:calc(100vh - 65px);
+}
+
+.section{
+    padding:75px 0;
+}
+
+.section-title{
+    font-size:30px;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.section-subtitle{
+    color:var(--muted);
+    margin-bottom:35px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--green-light);
+    color:var(--green-dark);
+    padding:6px 13px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:13px;
+    font-weight:700;
+    transition:.2s;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+}
+
+.btn-primary{
+    background:var(--green);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--green-dark);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:white;
+    color:var(--text);
+    border:1px solid var(--border);
+}
+
+.btn-secondary:hover{
+    background:#f1f5f9;
+}
+
+.btn-amber{
+    background:var(--amber);
+    color:#111827;
+}
+
+.btn-danger{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:24px;
+    box-shadow:0 10px 30px rgba(15,23,42,.05);
+}
+
+.hidden{
+    display:none!important;
+}
+
+/* HERO */
+
+.hero{
+    min-height:680px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 20% 30%,rgba(16,185,129,.25),transparent 30%),
+        radial-gradient(circle at 85% 20%,rgba(245,158,11,.15),transparent 25%),
+        var(--dark);
+    color:white;
+}
+
+.hero-content{
+    max-width:800px;
+    padding:80px 0;
+}
+
+.hero h1{
+    font-size:clamp(35px,6vw,64px);
+    line-height:1.25;
+    margin:20px 0;
+    font-weight:800;
+}
+
+.hero h1 span{
+    color:#34d399;
+}
+
+.hero p{
+    color:#cbd5e1;
+    font-size:18px;
+    max-width:680px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:30px;
+}
+
+.hero .btn-secondary{
+    background:rgba(255,255,255,.08);
+    color:white;
+    border-color:rgba(255,255,255,.15);
+}
+
+/* JOURNEY */
+
+.journey{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:10px;
+    align-items:center;
+}
+
+.journey-item{
+    text-align:center;
+}
+
+.journey-icon{
+    width:60px;
+    height:60px;
+    border-radius:18px;
+    background:white;
+    border:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    margin:auto auto 8px;
+}
+
+.journey-arrow{
+    color:var(--green);
+    text-align:center;
+    font-size:22px;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.feature-icon{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.feature h3{
+    margin-bottom:7px;
+}
+
+.feature p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* HONEST */
+
+.honest{
+    background:var(--dark);
+    color:white;
+}
+
+.honest-box{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+}
+
+.honest-box p{
+    color:#cbd5e1;
+}
+
+/* QUIZ */
+
+.quiz-wrap{
+    max-width:800px;
+    margin:50px auto;
+}
+
+.progress{
+    height:10px;
+    background:#e2e8f0;
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0 30px;
+}
+
+.progress-bar{
+    height:100%;
+    background:linear-gradient(90deg,var(--green),#34d399);
+    transition:.4s;
+}
+
+.question{
+    margin-bottom:25px;
+}
+
+.question label{
+    display:block;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.input,
+.select{
+    width:100%;
+    padding:13px 15px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    outline:none;
+    background:white;
+}
+
+.input:focus,
+.select:focus{
+    border-color:var(--green);
+}
+
+.options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.option{
+    padding:14px;
+    border:1px solid var(--border);
+    background:white;
+    border-radius:14px;
+    cursor:pointer;
+    transition:.2s;
+    text-align:center;
+}
+
+.option:hover{
+    border-color:var(--green);
+}
+
+.option.selected{
+    background:var(--green-light);
+    border-color:var(--green);
+    color:var(--green-dark);
+    font-weight:700;
+}
+
+.chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.chip{
+    border:1px solid var(--border);
+    background:white;
+    padding:9px 14px;
+    border-radius:999px;
+    cursor:pointer;
+}
+
+.chip.selected{
+    background:var(--green);
+    color:white;
+    border-color:var(--green);
+}
+
+.quiz-actions{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+}
+
+/* TRACKS */
+
+.tracks{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.track-card{
+    position:relative;
+}
+
+.track-level{
+    font-size:12px;
+    font-weight:800;
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:999px;
+    margin-bottom:12px;
+}
+
+.level-green{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.level-yellow{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.level-blue{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+.track-icon{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.track-card h3{
+    font-size:20px;
+}
+
+.track-card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.track-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:15px 0;
+}
+
+.meta{
+    background:#f1f5f9;
+    padding:5px 9px;
+    border-radius:8px;
+    font-size:12px;
+}
+
+/* DASHBOARD */
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+
+.progress-big{
+    height:15px;
+    background:#e2e8f0;
+    border-radius:20px;
+    overflow:hidden;
+    margin:12px 0;
+}
+
+.progress-big div{
+    height:100%;
+    background:var(--green);
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin:20px 0;
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat strong{
+    font-size:27px;
+    display:block;
+    color:var(--green-dark);
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.task{
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.task-check{
+    width:35px;
+    height:35px;
+    background:var(--green-light);
+    color:var(--green-dark);
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* CHAT */
+
+.chat{
+    max-width:850px;
+    margin:40px auto;
+}
+
+.chat-box{
+    height:480px;
+    overflow-y:auto;
+    background:#f1f5f9;
+    padding:20px;
+    border-radius:20px;
+}
+
+.message{
+    max-width:80%;
+    padding:13px 16px;
+    border-radius:17px;
+    margin-bottom:12px;
+}
+
+.message.bot{
+    background:white;
+    border:1px solid var(--border);
+    margin-left:auto;
+}
+
+.message.user{
+    background:var(--green);
+    color:white;
+    margin-right:auto;
+}
+
+.chat-input{
+    display:flex;
+    gap:10px;
+    margin-top:12px;
+}
+
+.chat-input input{
+    flex:1;
+}
+
+/* TASKS */
+
+.task-list{
+    display:grid;
+    gap:12px;
+}
+
+.task-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.task-row input{
+    width:20px;
+    height:20px;
+    accent-color:var(--green);
+}
+
+.task-row.done h3{
+    text-decoration:line-through;
+    color:var(--muted);
+}
+
+/* PORTFOLIO */
+
+.portfolio-header{
+    background:linear-gradient(135deg,var(--dark),#064e3b);
+    color:white;
+    border-radius:25px;
+    padding:35px;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.project{
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:18px;
+}
+
+/* PROFILE */
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.badge-achievement{
+    background:#fffbeb;
+    border:1px solid #fde68a;
+    padding:10px 13px;
+    border-radius:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .mobile-menu{
+        display:block;
+        background:#334155;
+        color:white;
+        padding:8px 12px;
+        border-radius:10px;
+    }
+
+    .journey{
+        grid-template-columns:1fr;
+        gap:12px;
+    }
+
+    .journey-arrow{
+        transform:rotate(90deg);
+    }
+
+    .features,
+    .tracks,
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-grid,
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons .btn{
+        width:100%;
+    }
+
+    .chat-box{
+        height:430px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="app"></div>
+
+<script>
+
+/* =========================
+   DATA
+========================= */
+
+const WILAYAS = [
+"أدرار","الشلف","الأغواط","أم البواقي","باتنة","بجاية","بسكرة","بشار",
+"البليدة","البويرة","تمنراست","تبسة","تلمسان","تيارت","تيزي وزو",
+"الجزائر","الجلفة","جيجل","سطيف","سعيدة","سكيكدة","سيدي بلعباس",
+"عنابة","قالمة","قسنطينة","المدية","مستغانم","المسيلة","معسكر",
+"ورقلة","وهران","البيض","إليزي","برج بوعريريج","بومرداس","الطارف",
+"تندوف","تيسمسيلت","الوادي","خنشلة","سوق أهراس","تيبازة","ميلة",
+"عين الدفلى","النعامة","عين تموشنت","غرداية","غليزان",
+"تيميمون","برج باجي مختار","أولاد جلال","بني عباس","عين صالح",
+"عين قزام","تقرت","جانت","المغير","المنيعة"
+];
+
+const TRACKS = [
+{
+ id:"video",
+ name:"مونتاج الفيديو",
+ icon:"🎬",
+ category:"رقمي",
+ duration:"4–8 أسابيع",
+ difficulty:"متوسط",
+ cost:"يمكن البدء بهاتف",
+ tools:"CapCut / VN / DaVinci Resolve",
+ description:"تعلم صناعة وتعديل فيديوهات قصيرة وإعلانات ومحتوى للسوشيال ميديا.",
+ interests:["فيديو","ألعاب","تصميم","صناعة المحتوى"],
+ goals:["دخل إضافي","عمل من المنزل","تعلم مهارة"]
+},
+{
+ id:"design",
+ name:"التصميم",
+ icon:"🎨",
+ category:"رقمي",
+ duration:"4–8 أسابيع",
+ difficulty:"متوسط",
+ cost:"يمكن البدء مجاناً",
+ tools:"Canva / أدوات التصميم",
+ description:"تعلم إنشاء منشورات وإعلانات وواجهات بصرية بسيطة.",
+ interests:["تصميم","تكنولوجيا","تصوير"],
+ goals:["دخل إضافي","عمل من المنزل","تعلم مهارة"]
+},
+{
+ id:"coding",
+ name:"البرمجة",
+ icon:"💻",
+ category:"رقمي",
+ duration:"3–6 أشهر+",
+ difficulty:"متقدم",
+ cost:"PC أفضل",
+ tools:"HTML / CSS / JavaScript",
+ description:"مسار طويل نسبياً لبناء مهارات تطوير المواقع والبرمجيات.",
+ interests:["تكنولوجيا","ألعاب"],
+ goals:["وظيفة","عمل من المنزل","تعلم مهارة"]
+},
+{
+ id:"social",
+ name:"إدارة صفحات",
+ icon:"📱",
+ category:"رقمي",
+ duration:"3–6 أسابيع",
+ difficulty:"مبتدئ–متوسط",
+ cost:"قليل أو مجاني",
+ tools:"Facebook / Instagram / TikTok",
+ description:"تعلم تنظيم المحتوى والتواصل وإدارة صفحات المشاريع.",
+ interests:["تحدث مع الناس","تجارة","صناعة المحتوى","كتابة"],
+ goals:["دخل إضافي","عمل من المنزل","مشروع"]
+},
+{
+ id:"writing",
+ name:"الكتابة وصناعة النصوص",
+ icon:"✍️",
+ category:"رقمي",
+ duration:"3–6 أسابيع",
+ difficulty:"متوسط",
+ cost:"قليل",
+ tools:"Google Docs / أدوات AI",
+ description:"تعلم كتابة النصوص الإعلانية والمحتوى بطريقة عملية.",
+ interests:["كتابة","تجارة","تعليم"],
+ goals:["دخل إضافي","عمل من المنزل","تعلم مهارة"]
+},
+{
+ id:"resell",
+ name:"إعادة البيع",
+ icon:"🛒",
+ category:"تجارة",
+ duration:"2–6 أسابيع",
+ difficulty:"متوسط",
+ cost:"يحتاج رأس مال حسب النموذج",
+ tools:"Facebook Marketplace / شبكات التواصل",
+ description:"تعلم البحث عن منتجات مناسبة وإعادة بيعها بطريقة منظمة.",
+ interests:["بيع وشراء","تجارة","تحدث مع الناس"],
+ goals:["دخل إضافي","مشروع"]
+},
+{
+ id:"ecommerce",
+ name:"التجارة الإلكترونية",
+ icon:"🏪",
+ category:"تجارة",
+ duration:"1–3 أشهر",
+ difficulty:"متوسط",
+ cost:"يختلف حسب المشروع",
+ tools:"متجر إلكتروني / وسائل التواصل",
+ description:"تعلم أساسيات بناء متجر واختيار المنتجات والتسويق.",
+ interests:["تجارة","بيع وشراء","تكنولوجيا"],
+ goals:["مشروع","دخل إضافي"]
+},
+{
+ id:"repair",
+ name:"الصيانة والإصلاح",
+ icon:"🔧",
+ category:"مهن",
+ duration:"حسب التخصص",
+ difficulty:"عملي",
+ cost:"أدوات حسب المهنة",
+ tools:"أدوات مهنية",
+ description:"مسار عملي لتعلم مهارات الصيانة والإصلاح.",
+ interests:["إصلاح الأشياء","عمل يدوي","سيارات"],
+ goals:["وظيفة","مشروع","دخل إضافي"]
+},
+{
+ id:"craft",
+ name:"مهن يدوية",
+ icon:"🛠️",
+ category:"مهن",
+ duration:"حسب التخصص",
+ difficulty:"عملي",
+ cost:"حسب الأدوات",
+ tools:"معدات حسب المهنة",
+ description:"مجموعة من المهن العملية التي تعتمد على التدريب والتطبيق.",
+ interests:["عمل يدوي","إصلاح الأشياء","طبخ"],
+ goals:["وظيفة","مشروع","دخل إضافي"]
+},
+{
+ id:"photo",
+ name:"التصوير",
+ icon:"📷",
+ category:"إبداع",
+ duration:"4–8 أسابيع",
+ difficulty:"متوسط",
+ cost:"الهاتف يمكن أن يكون بداية",
+ tools:"هاتف / كاميرا / Lightroom",
+ description:"تعلم أساسيات التصوير وصناعة الصور للمشاريع والمحتوى.",
+ interests:["تصوير","فيديو","تصميم"],
+ goals:["دخل إضافي","مشروع","تعلم مهارة"]
+},
+{
+ id:"content",
+ name:"صناعة المحتوى",
+ icon:"🎥",
+ category:"إبداع",
+ duration:"مستمر",
+ difficulty:"متوسط",
+ cost:"يمكن البدء بهاتف",
+ tools:"هاتف / أدوات مونتاج",
+ description:"تعلم بناء محتوى مفيد وتطوير أسلوب نشر منتظم.",
+ interests:["صناعة المحتوى","ألعاب","فيديو","تحدث مع الناس"],
+ goals:["مشروع","دخل إضافي","عمل من المنزل"]
+},
+{
+ id:"food",
+ name:"مشروع أكل منزلي",
+ icon:"🍳",
+ category:"مهن",
+ duration:"حسب المنتج",
+ difficulty:"عملي",
+ cost:"حسب المشروع",
+ tools:"معدات ومواد حسب النشاط",
+ description:"تطوير مهارة في تحضير منتجات غذائية ومحاولة تحويلها إلى نشاط صغير.",
+ interests:["طبخ","تجارة","تحدث مع الناس"],
+ goals:["مشروع","دخل إضافي"]
+}
+];
+
+const TASKS = [
+{id:1,title:"اكتشف المسار",level:0,time:"15 دقيقة",desc:"اكتب علاش اخترت هذا المسار وواش حاب تتعلم منه."},
+{id:2,title:"تعلم الأساسيات",level:0,time:"30 دقيقة",desc:"تعرف على الأدوات والمفاهيم الأساسية للمجال."},
+{id:3,title:"طبق أول تمرين",level:1,time:"45 دقيقة",desc:"نفذ تمريناً بسيطاً متعلقاً بالمهارة."},
+{id:4,title:"أعد التمرين",level:1,time:"45 دقيقة",desc:"حاول تحسين النتيجة بناءً على ملاحظاتك."},
+{id:5,title:"أنجز مشروع صغير",level:2,time:"60 دقيقة",desc:"أنجز أول مشروع قابل للعرض."},
+{id:6,title:"راجع عملك",level:2,time:"20 دقيقة",desc:"قيم المشروع تقنياً وإبداعياً."},
+{id:7,title:"مشروع ثاني",level:3,time:"90 دقيقة",desc:"أنجز مشروعاً مختلفاً يثبت أنك فهمت المهارة."},
+{id:8,title:"ابنِ Portfolio",level:3,time:"45 دقيقة",desc:"جهز وصفاً بسيطاً لأعمالك ومهاراتك."},
+{id:9,title:"محاكاة عميل",level:4,time:"30 دقيقة",desc:"تدرب على فهم طلب العميل والرد عليه."},
+{id:10,title:"جهز عرض خدمتك",level:4,time:"30 دقيقة",desc:"اكتب وصفاً واضحاً للخدمة التي تستطيع تقديمها."},
+{id:11,title:"تدريب على المقابلة",level:5,time:"30 دقيقة",desc:"تدرب على تقديم نفسك وشرح مهاراتك."},
+{id:12,title:"خطة الخطوة القادمة",level:5,time:"20 دقيقة",desc:"حدد ما ستفعله خلال الأسبوع القادم."}
+];
+
+/* =========================
+   STATE
+========================= */
+
+let state = JSON.parse(localStorage.getItem("tariqakState")) || {
+    page:"home",
+    quizStep:1,
+    quiz:{},
+    selectedTrack:null,
+    completedTasks:[],
+    mentorMessages:[],
+    mentorStyle:"dz",
+    name:"صديق طريقك"
+};
+
+function save(){
+    localStorage.setItem("tariqakState",JSON.stringify(state));
+}
+
+/* =========================
+   HELPERS
+========================= */
+
+function go(page){
+    state.page=page;
+    save();
+    render();
+    window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function getTrack(){
+    return TRACKS.find(t=>t.id===state.selectedTrack);
+}
+
+function progress(){
+    return Math.round((state.completedTasks.length/TASKS.length)*100);
+}
+
+function level(){
+    const p=progress();
+    if(p<15)return 0;
+    if(p<30)return 1;
+    if(p<50)return 2;
+    if(p<70)return 3;
+    if(p<90)return 4;
+    return 5;
+}
+
+function escapeHTML(str){
+    return String(str||"")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+function navbar(){
+return `
+<nav class="navbar">
+<div class="nav-inner">
+
+<div class="logo">
+<div class="logo-icon">🧭</div>
+طريقك
+</div>
+
+<div class="nav-links">
+<button onclick="go('home')">الرئيسية</button>
+<button onclick="go('quiz')">اكتشف طريقك</button>
+<button onclick="go('dashboard')">لوحة التحكم</button>
+<button onclick="go('mentor')">🤖 المرافق</button>
+<button onclick="go('tasks')">المهام</button>
+<button onclick="go('portfolio')">Portfolio</button>
+<button onclick="go('profile')">حسابي</button>
+</div>
+
+<button class="mobile-menu" onclick="go('dashboard')">☰</button>
+
+</div>
+</nav>
+`;
+}
+
+/* =========================
+   HOME
+========================= */
+
+function home(){
+
+return `
+<div class="page">
+
+<section class="hero">
+<div class="container">
+<div class="hero-content">
+
+<span class="badge">🇩🇿 مصنوع للشباب الجزائري</span>
+
+<h1>
+ماكش عارف وين رايح؟
+<br>
+<span>ما عندكش خدمة؟</span>
+</h1>
+
+<p>
+ماشي لازم تعرف الطريق كامل.
+يكفي تعرف الخطوة الأولى.
+جاوب على بعض الأسئلة، واكتشف مسارات ممكن تناسب إمكانياتك واهتماماتك، ومن بعد ابني طريقك خطوة بخطوة.
+</p>
+
+<div class="hero-buttons">
+<button class="btn btn-primary" onclick="go('quiz')">
+🚀 ابدأ اكتشاف طريقك
+</button>
+
+<button class="btn btn-secondary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
+كيفاش يخدم؟
+</button>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+
+<h2 class="section-title">من الضياع إلى طريق واضح</h2>
+<p class="section-subtitle">ما نطلبوش منك تعرف المستقبل. نبدأو من وضعك الحالي.</p>
+
+<div class="journey">
+
+<div class="journey-item">
+<div class="journey-icon">😕</div>
+ضياع
+</div>
+
+<div class="journey-arrow">←</div>
+
+<div class="journey-item">
+<div class="journey-icon">🧠</div>
+اكتشاف الذات
+</div>
+
+<div class="journey-arrow">←</div>
+
+<div class="journey-item">
+<div class="journey-icon">🗺️</div>
+خطة شخصية
+</div>
+
+<div class="journey-arrow">←</div>
+
+<div class="journey-item">
+<div class="journey-icon">📚</div>
+تعلم
+</div>
+
+<div class="journey-arrow">←</div>
+
+<div class="journey-item">
+<div class="journey-icon">🛠️</div>
+تطبيق
+</div>
+
+<div class="journey-arrow">←</div>
+
+<div class="journey-item">
+<div class="journey-icon">🚀</div>
+أول فرصة
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="section" id="features">
+<div class="container">
+
+<h2 class="section-title">أكثر من مجرد اختبار</h2>
+<p class="section-subtitle">طريقك يحاول يمشي معاك من أول خطوة حتى تكون مستعد للفرص.</p>
+
+<div class="features">
+
+<div class="card feature">
+<div class="feature-icon">🧠</div>
+<h3>اختبار ذكي</h3>
+<p>نفهم اهتماماتك، إمكانياتك، مواردك، وأهدافك.</p>
+</div>
+
+<div class="card feature">
+<div class="feature-icon">🤖</div>
+<h3>AI مرافق</h3>
+<p>يساعدك تفهم، تتعلم، وتراجع أخطاءك خطوة بخطوة.</p>
+</div>
+
+<div class="card feature">
+<div class="feature-icon">🎓</div>
+<h3>نظام تربص</h3>
+<p>بدل ما تتفرج فقط، تتعلم وتطبق وتنجز مشاريع.</p>
+</div>
+
+<div class="card feature">
+<div class="feature-icon">📁</div>
+<h3>Portfolio</h3>
+<p>أعمالك ومهاراتك تتجمع في مكان واحد.</p>
+</div>
+
+<div class="card feature">
+<div class="feature-icon">🤝</div>
+<h3>محاكاة العملاء</h3>
+<p>تتدرب قبل ما تدخل للسوق الحقيقي.</p>
+</div>
+
+<div class="card feature">
+<div class="feature-icon">📈</div>
+<h3>تتبع التقدم</h3>
+<p>تعرف وين وصلت وواش لازم تدير بعد.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="section honest">
+<div class="container">
+<div class="honest-box">
+
+<span class="badge">⚠️ الصراحة أولاً</span>
+
+<h2 class="section-title">ما نبيعوش الوهم</h2>
+
+<p>
+طريقك ماشي آلة تعطيك فلوس ولا وظيفة مضمونة.
+نعاونك تفهم الخيارات، تتعلم مهارات، تطبق، وتكون مستعد للفرص.
+النتيجة تعتمد على مهاراتك، التزامك، والفرص الموجودة في السوق.
+</p>
+
+<br>
+
+<button class="btn btn-amber" onclick="go('quiz')">
+ابدأ الخطوة الأولى 🚀
+</button>
+
+</div>
+</div>
+</section>
+
+</div>
+`;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+function quiz(){
+
+const step=state.quizStep;
+
+let content="";
+
+if(step===1){
+
+content=`
+<div class="question">
+<label>شحال عمرك؟</label>
+<input class="input" type="number" id="age" value="${state.quiz.age||""}" placeholder="مثلاً: 21">
+</div>
+
+<div class="question">
+<label>الولاية</label>
+<select class="select" id="wilaya">
+<option value="">اختار ولايتك</option>
+${WILAYAS.map(w=>`<option ${state.quiz.wilaya===w?"selected":""}>${w}</option>`).join("")}
+</select>
+</div>
+
+<div class="question">
+<label>المستوى الدراسي</label>
+<div class="options">
+${["متوسط","ثانوي","تكوين مهني","جامعي","متخرج","آخر"].map(x=>`
+<div class="option ${state.quiz.study===x?"selected":""}" onclick="choose('study','${x}')">${x}</div>
+`).join("")}
+</div>
+</div>
+
+<div class="question">
+<label>الحالة الحالية</label>
+<div class="options">
+${["نخدم","ما نخدمش","نقرا","نقرا ونخدم"].map(x=>`
+<div class="option ${state.quiz.work===x?"selected":""}" onclick="choose('work','${x}')">${x}</div>
+`).join("")}
+</div>
+</div>
+
+<div class="question">
+<label>شحال من ساعة تقدر تخصص يومياً؟</label>
+<div class="options">
+${["أقل من ساعة","1–2 ساعات","2–4 ساعات","أكثر من 4 ساعات"].map(x=>`
+<div class="option ${state.quiz.hours===x?"selected":""}" onclick="choose('hours','${x}')">${x}</div>
+`).join("")}
+</div>
+</div>
+`;
+
+}else if(step===2){
+
+content=`
+<div class="question">
+<label>واش عندك من الأجهزة؟</label>
+<div class="options">
+${["هاتف فقط","هاتف + PC","PC فقط"].map(x=>`
+<div class="option ${state.quiz.device===x?"selected":""}" onclick="choose('device','${x}')">${x}</div>
+`).join("")}
+</div>
+</div>
+
+<div class="question">
+<label>الإنترنت عندك؟</label>
+<div class="options">
+${["ضعيف","متوسط","جيد"].map(x=>`
+<div class="option ${state.quiz.internet===x?"selected":""}" onclick="choose('internet','${x}')">${x}</div>
+`).join("")}
+</div>
+</div>
+
+<div class="question">
+<label>رأس المال المتاح</label>
+<div class="options">
+${["0 دج","أقل من 10,000 دج","10,000–50,000 دج","أكثر"].map(x=>`
+<div class="option ${state.quiz.money===x?"selected":""}" onclick="choose('money','${x}')">${x}</div>
+`).join("")}
+</div>
+</div>
+
+<div class="question">
+<label>تقدر تخدم خارج الدار؟</label>
+<div class="options">
+${["نعم","لا","حسب الفرصة"].map(x=>`
+<div class="option ${state.quiz.mobility===x?"selected":""}" onclick="choose('mobility','${x}')">${x}</div>
+`).join("")}
+</div>
+</div>
+`;
+
+}else if(step===3){
+
+const interests=[
+"تكنولوجيا","ألعاب","بيع وشراء","تصميم","فيديو","كتابة",
+"إصلاح الأشياء","طبخ","سيارات","عمل يدوي","تعليم",
+"تصوير","تجارة","التحدث مع الناس","صناعة المحتوى"
+];
+
+content=`
+<div class="question">
+<label>واش الحوايج اللي تجذبك؟</label>
+<p style="color:#64748b;margin-bottom:15px">اختار كل ما يناسبك.</p>
+
+<div class="chips">
+${interests.map(x=>`
+<div class="chip ${(state.quiz.interests||[]).includes(x)?"selected":""}"
+onclick="toggleInterest('${x}')">${x}</div>
+`).join("")}
+</div>
+
+</div>
+`;
+
+}else if(step===4){
+
+content=`
+<div class="question">
+<label>تفضل تخدم:</label>
+<div class="options">
+${["وحدي","مع الناس","الاثنين"].map(x=>`
+<div class="option ${state.quiz.people===x?"selected":""}" onclick="choose('people','${x}')">${x}</div>
+`).join("")}
+</div>
+</div>
+
+<div class="question">
+<label>مكان العمل:</label>
+<div class="options">
+${["من المنزل","خارج المنزل","الاثنين"].map(x=>`
+<div class="option ${state.quiz.place===x?"selected":""}" onclick="choose('place','${x}')">${x}</div>
+`).join("")}
+</div>
+</div>
+
+<div class="question">
+<label>نوع العمل:</label>
+<div class="options">
+${["ذهني","عملي","الاثنين"].map(x=>`
+<div class="option ${state.quiz.type===x?"selected":""}" onclick="choose('type','${x}')">${x}</div>
+`).join("")}
+</div>
+</div>
+`;
+
+}else if(step===5){
+
+content=`
+<div class="question">
+<label>إذا كان عندك مسار مناسب، تقدر تلتزم 30 يوم؟</label>
+
+<div class="options">
+${["نعم","ربما","لا"].map(x=>`
+<div class="option ${state.quiz.commit===x?"selected":""}" onclick="choose('commit','${x}')">${x}</div>
+`).join("")}
+</div>
+
+<p style="margin-top:15px;color:#64748b">
+إذا اخترت "لا"، ماشي مشكل. نقدر نبدأو بخطوات صغيرة.
+</p>
+</div>
+`;
+
+}else{
+
+content=`
+<div class="question">
+<label>واش هو الهدف اللي حاب توصل له؟</label>
+
+<div class="options">
+${[
+"دخل إضافي",
+"وظيفة",
+"عمل من المنزل",
+"مشروع",
+"تعلم مهارة",
+"ما نعرفش واش حاب"
+].map(x=>`
+<div class="option ${state.quiz.goal===x?"selected":""}" onclick="choose('goal','${x}')">${x}</div>
+`).join("")}
+</div>
+
+${state.quiz.goal==="ما نعرفش واش حاب"?`
+<div class="card" style="margin-top:20px;background:#ecfdf5">
+<strong>💚 ماشي مشكل</strong>
+<p style="color:#475569">
+بزاف ناس يبدأو وهم ما يعرفوش واش حابين.
+طريقك راح يقترح عليك تجارب صغيرة باش تكتشف المجالات اللي تناسبك.
+</p>
+</div>
+`:""}
+
+</div>
+`;
+
+}
+
+return `
+<div class="page">
+<div class="container">
+
+<div class="quiz-wrap">
+
+<span class="badge">🧠 اكتشاف طريقك</span>
+
+<h1 style="margin-top:15px">خلينا نتعرفو عليك شوية</h1>
+
+<p style="color:#64748b">
+ما كاش جواب صحيح أو خاطئ.
+جاوب بصراحة باش تكون الاقتراحات أقرب لوضعك.
+</p>
+
+<div class="progress">
+<div class="progress-bar" style="width:${step/6*100}%"></div>
+</div>
+
+<p style="color:#64748b;margin-bottom:20px">
+المرحلة ${step} من 6
+</p>
+
+<div class="card">
+${content}
+
+<div class="quiz-actions">
+
+<button class="btn btn-secondary"
+onclick="${step===1?"go('home')":"prevQuiz()"}">
+← ${step===1?"الرئيسية":"رجوع"}
+</button>
+
+<button class="btn btn-primary"
+onclick="${step===6?"finishQuiz()":"nextQuiz()"}">
+${step===6?"🔎 شوف نتيجتي":"التالي →"}
+</button>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+`;
+}
+
+/* =========================
+   QUIZ FUNCTIONS
+========================= */
+
+function choose(key,value){
+    state.quiz[key]=value;
+    save();
+    render();
+}
+
+function toggleInterest(value){
+
+if(!state.quiz.interests)
+    state.quiz.interests=[];
+
+if(state.quiz.interests.includes(value)){
+    state.quiz.interests=
+    state.quiz.interests.filter(x=>x!==value);
+}else{
+    state.quiz.interests.push(value);
+}
+
+save();
+render();
+}
+
+function nextQuiz(){
+
+if(state.quizStep===1){
+
+const age=document.getElementById("age")?.value;
+const wilaya=document.getElementById("wilaya")?.value;
+
+if(age)state.quiz.age=age;
+if(wilaya)state.quiz.wilaya=wilaya;
+}
+
+state.quizStep++;
+save();
+render();
+}
+
+function prevQuiz(){
+    state.quizStep--;
+    save();
+    render();
+}
+
+function finishQuiz(){
+
+state.quizStep=1;
+save();
+go("result");
+}
+
+/* =========================
+   SCORING
+========================= */
+
+function scoreTracks(){
+
+let scores=TRACKS.map(t=>({
+    track:t,
+    score:0
+}));
+
+const q=state.quiz;
+
+scores.forEach(item=>{
+
+const t=item.track;
+
+if(q.interests){
+    q.interests.forEach(i=>{
+        if(t.interests.includes(i))
+            item.score+=5;
+    });
+}
+
+if(q.goal && t.goals.includes(q.goal))
+    item.score+=4;
+
+if(q.device==="هاتف فقط"){
+    if(["video","design","social","writing","content","photo"].includes(t.id))
+        item.score+=3;
+}
+
+if(q.money==="0 دج"){
+    if(["video","design","social","writing","content"].includes(t.id))
+        item.score+=2;
+}
+
+if(q.place==="من المنزل"){
+    if(["video","design","coding","social","writing","photo","content"].includes(t.id))
+        item.score+=2;
+}
+
+if(q.type==="عملي"){
+    if(["repair","craft","food"].includes(t.id))
+        item.score+=4;
+}
+
+if(q.people==="مع الناس"){
+    if(["social","resell","ecommerce","food"].includes(t.id))
+        item.score+=2;
+}
+
+});
+
+scores.sort((a,b)=>b.score-a.score);
+
+return scores.slice(0,3);
+}
+
+/* =========================
+   RESULTS
+========================= */
+
+function result(){
+
+const results=scoreTracks();
+
+if(!results.length){
+return `<div class="page"><div class="container section"><div class="card">ما لقيناش نتيجة.</div></div></div>`;
+}
+
+const labels=[
+["🟢","مناسب لك بناءً على إجاباتك","level-green"],
+["🟡","مسار ممكن","level-yellow"],
+["🔵","يحتاج وقتاً أو موارد أكثر","level-blue"]
+];
+
+return `
+<div class="page">
+<div class="container section">
+
+<span class="badge">🔎 النتيجة</span>
+
+<h1 class="section-title" style="margin-top:15px">
+المسارات اللي ممكن تناسبك
+</h1>
+
+<p class="section-subtitle">
+هذه اقتراحات مبنية على إجاباتك، وليست حكماً نهائياً على مستقبلك.
+</p>
+
+<div class="tracks">
+
+${results.map((r,i)=>`
+
+<div class="card track-card">
+
+<span class="track-level ${labels[i][2]}">
+${labels[i][0]} ${labels[i][1]}
+</span>
+
+<div class="track-icon">${r.track.icon}</div>
+
+<h3>${r.track.name}</h3>
+
+<p>${r.track.description}</p>
+
+<div class="track-meta">
+<span class="meta">⏱ ${r.track.duration}</span>
+<span class="meta">🎯 ${r.track.difficulty}</span>
+<span class="meta">💰 ${r.track.cost}</span>
+</div>
+
+<p style="margin:10px 0">
+<strong>الأدوات:</strong><br>
+${r.track.tools}
+</p>
+
+<button class="btn btn-primary" style="width:100%"
+onclick="selectTrack('${r.track.id}')">
+اختار هذا المسار
+</button>
+
+</div>
+
+`).join("")}
+
+</div>
+
+<div class="card" style="margin-top:25px">
+
+<h2>علاش اقترحنا هاد المسارات؟</h2>
+
+<p style="color:#64748b;margin-top:10px">
+
+${explanation(results)}
+
+</p>
+
+</div>
+
+<div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+
+<button class="btn btn-secondary" onclick="state.quizStep=1;go('quiz')">
+🔄 عاود الاختبار
+</button>
+
+</div>
+
+</div>
+</div>
+`;
+}
+
+function explanation(results){
+
+const q=state.quiz;
+
+let reasons=[];
+
+if(q.interests?.length)
+    reasons.push(`اهتماماتك تشمل ${q.interests.slice(0,4).join("، ")}`);
+
+if(q.device)
+    reasons.push(`الأجهزة المتوفرة عندك: ${q.device}`);
+
+if(q.money)
+    reasons.push(`رأس المال المتاح: ${q.money}`);
+
+if(q.goal)
+    reasons.push(`الهدف اللي اخترته: ${q.goal}`);
+
+if(!reasons.length)
+    reasons.push("إجاباتك الأولية");
+
+return `
+بناءً على ${reasons.join("، ")}، ظهرت لك
+<strong>${results[0].track.name}</strong>
+ضمن المسارات الأولى المقترحة.
+هذا مجرد توجيه أولي، ويمكنك تجربة مسار آخر إذا اكتشفت لاحقاً أنه يناسبك أكثر.
+`;
+}
+
+function selectTrack(id){
+
+state.selectedTrack=id;
+state.completedTasks=[];
+save();
+
+go("dashboard");
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+function dashboard(){
+
+const track=getTrack();
+const p=progress();
+const l=level();
+
+if(!track){
+
+return `
+<div class="page">
+<div class="container section">
+
+<div class="card" style="text-align:center">
+
+<div style="font-size:55px">🧭</div>
+
+<h1>مازال ما اخترتش طريقك</h1>
+
+<p style="color:#64748b;margin:15px 0">
+جاوب على الاختبار باش نقترحولك مسارات تناسب وضعك.
+</p>
+
+<button class="btn btn-primary" onclick="go('quiz')">
+🚀 ابدأ الاختبار
+</button>
+
+</div>
+
+</div>
+</div>
+`;
+}
+
+const done=state.completedTasks.length;
+
+return `
+<div class="page">
+<div class="container section">
+
+<div style="margin-bottom:25px">
+<span class="badge">لوحة التحكم</span>
+<h1 style="margin-top:10px">مرحبا 👋</h1>
+<p style="color:#64748b">
+اليوم نكملو من وين حبست، ماشي لازم تدير كلش مرة وحدة.
+</p>
+</div>
+
+<div class="dashboard-grid">
+
+<div>
+
+<div class="card">
+
+<p style="color:#64748b">مسارك الحالي</p>
+
+<h2>${track.icon} ${track.name}</h2>
+
+<p style="color:#64748b">
+${track.description}
+</p>
+
+<div class="progress-big">
+<div style="width:${p}%"></div>
+</div>
+
+<strong>${p}% مكتمل</strong>
+
+</div>
+
+<div class="stats">
+
+<div class="card stat">
+<strong>${done}</strong>
+<span>مهام مكتملة</span>
+</div>
+
+<div class="card stat">
+<strong>${Math.floor(done/2)}</strong>
+<span>مشاريع</span>
+</div>
+
+<div class="card stat">
+<strong>${Math.min(done,5)}</strong>
+<span>مهارات</span>
+</div>
+
+<div class="card stat">
+<strong>${l}/5</strong>
+<span>المستوى</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🎯 مهمة اليوم</h2>
+
+<div class="task" style="margin-top:15px">
+
+<div class="task-check">✓</div>
+
+<div style="flex:1">
+
+<h3>${nextTask().title}</h3>
+
+<p style="color:#64748b">
+${nextTask().desc}
+</p>
+
+<small>⏱ ${nextTask().time}</small>
+
+</div>
+
+</div>
+
+<button class="btn btn-primary" style="margin-top:18px"
+onclick="go('tasks')">
+كمّل المهمة →
+</button>
+
+</div>
+
+</div>
+
+<div>
+
+<div class="card">
+
+<h3>🗺️ طريقك الحالي</h3>
+
+<div style="margin-top:18px">
+
+${[
+["اكتشاف المسار",0],
+["الأساسيات",1],
+["التطبيق",2],
+["المشاريع",3],
+["الاستعداد للفرص",4],
+["الاستقلالية",5]
+].map(x=>`
+
+<div style="display:flex;gap:12px;margin-bottom:15px;align-items:center">
+
+<div style="
+width:34px;
+height:34px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:${l>=x[1]?"#d1fae5":"#f1f5f9"};
+color:${l>=x[1]?"#047857":"#94a3b8"};
+font-weight:800">
+${l>=x[1]?"✓":x[1]}
+</div>
+
+<div>${x[0]}</div>
+
+</div>
+
+`).join("")}
+
+</div>
+
+</div>
+
+<div class="card" style="margin-top:15px">
+
+<h3>🤖 المرافق</h3>
+
+<p style="color:#64748b">
+عندك سؤال أو حاب تعرف واش تدير؟
+</p>
+
+<button class="btn btn-secondary" style="margin-top:10px"
+onclick="go('mentor')">
+تحدث مع المرافق
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+`;
+}
+
+function nextTask(){
+
+return TASKS.find(t=>!state.completedTasks.includes(t.id))
+||TASKS[TASKS.length-1];
+}
+
+/* =========================
+   TASKS
+========================= */
+
+function tasks(){
+
+const l=level();
+
+return `
+<div class="page">
+<div class="container section">
+
+<span class="badge">🎓 التربص</span>
+
+<h1 class="section-title" style="margin-top:15px">
+مهامك
+</h1>
+
+<p class="section-subtitle">
+ما تتعلمش غير بالنظر. طبق.
+</p>
+
+<div class="card" style="margin-bottom:20px">
+
+<strong>المستوى الحالي: ${l}/5</strong>
+
+<div class="progress-big">
+<div style="width:${progress()}%"></div>
+</div>
+
+${progress()}% من الخطة مكتملة
+
+</div>
+
+<div class="task-list">
+
+${TASKS.map(t=>{
+
+const done=state.completedTasks.includes(t.id);
+const locked=t.level>l+1;
+
+return `
+<div class="card task-row ${done?"done":""}">
+
+<input type="checkbox"
+${done?"checked":""}
+${locked?"disabled":""}
+onchange="toggleTask(${t.id})">
+
+<div style="flex:1">
+
+<h3>${t.title}</h3>
+
+<p style="color:#64748b">${t.desc}</p>
+
+<small>
+⏱ ${t.time}
+&nbsp; • &nbsp;
+المستوى ${t.level}
+</small>
+
+</div>
+
+${locked?`<span>🔒</span>`:""}
+
+</div>
+`;
+
+}).join("")}
+
+</div>
+
+</div>
+</div>
+`;
+}
+
+function toggleTask(id){
+
+if(state.completedTasks.includes(id)){
+    state.completedTasks=
+    state.completedTasks.filter(x=>x!==id);
+}else{
+    state.completedTasks.push(id);
+}
+
+save();
+render();
+}
+
+/* =========================
+   MENTOR
+========================= */
+
+function mentor(){
+
+if(!state.mentorMessages.length){
+
+state.mentorMessages=[{
+role:"bot",
+text:`أهلاً بك 👋
+
+أنا المرافق تاعك في طريقك.
+
+نقدر نشرحلك، نعطيك تمارين، نراجع خدمتك، ونبقى فاهم المسار والتقدم تاعك.
+
+ما نعطيكش كلام عام وخلاص. الهدف هو نعرف وضعك ونعاونك في الخطوة اللي بعدها.
+
+قولّي واش حاب نديرو اليوم؟`
+}];
+
+save();
+}
+
+return `
+<div class="page">
+<div class="container section">
+
+<div class="chat">
+
+<span class="badge">🤖 AI المرافق</span>
+
+<h1 class="section-title" style="margin-top:12px">
+المرافق تاعك
+</h1>
+
+<p style="color:#64748b;margin-bottom:20px">
+مدرب شخصي يتابع المسار والتقدم تاعك.
+</p>
+
+<div class="card">
+
+<div style="margin-bottom:15px">
+
+<label style="font-weight:700">طريقة التواصل</label>
+
+<select class="select"
+onchange="state.mentorStyle=this.value;save()">
+
+<option value="dz" ${state.mentorStyle==="dz"?"selected":""}>🇩🇿 جزائري بسيط</option>
+<option value="academic" ${state.mentorStyle==="academic"?"selected":""}>📚 أكاديمي</option>
+<option value="motivated" ${state.mentorStyle==="motivated"?"selected":""}>💪 محفز</option>
+<option value="direct" ${state.mentorStyle==="direct"?"selected":""}>🎯 مباشر</option>
+
+</select>
+
+</div>
+
+<div class="chat-box" id="chatBox">
+
+${state.mentorMessages.map(m=>`
+<div class="message ${m.role==="bot" || m.role==="assistant" ? "bot":"user"}">
+${formatMentorText(m.text)}
+</div>
+`).join("")}
+
+${state.mentorLoading?`
+<div class="message bot">
+🤖 المرافق راه يفكر...
+</div>
+`:""}
+
+</div>
+
+<div class="chat-input">
+
+<input class="input"
+id="mentorInput"
+autocomplete="off"
+placeholder="اكتب واش حاب تقول للمرافق..."
+onkeydown="if(event.key==='Enter'){event.preventDefault();sendMentor()}">
+
+<button class="btn btn-primary"
+id="mentorSendBtn"
+onclick="sendMentor()"
+${state.mentorLoading?"disabled":""}>
+${state.mentorLoading?"⏳":"إرسال"}
+</button>
+
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:10px;flex-wrap:wrap">
+
+<small style="color:#64748b">
+🟢 المرافق مربوط بالذكاء الاصطناعي
+</small>
+
+<button class="btn btn-secondary"
+style="padding:8px 12px"
+onclick="clearMentorChat()">
+مسح المحادثة
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+`;
+}
+
+function formatMentorText(text){
+
+return escapeHTML(text||"")
+.replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>")
+.replace(/\n/g,"<br>");
+}
+
+function getMentorContext(){
+
+const track=getTrack();
+const task=nextTask();
+
+return {
+
+name:state.name || "صديق طريقك",
+
+age:state.quiz?.age || "",
+wilaya:state.quiz?.wilaya || "",
+study:state.quiz?.study || "",
+work:state.quiz?.work || "",
+hours:state.quiz?.hours || "",
+device:state.quiz?.device || "",
+internet:state.quiz?.internet || "",
+money:state.quiz?.money || "",
+mobility:state.quiz?.mobility || "",
+
+interests:state.quiz?.interests || [],
+
+people:state.quiz?.people || "",
+place:state.quiz?.place || "",
+type:state.quiz?.type || "",
+commit:state.quiz?.commit || "",
+goal:state.quiz?.goal || "",
+
+selectedTrack:state.selectedTrack || "",
+trackName:track?.name || "",
+trackDescription:track?.description || "",
+trackTools:track?.tools || "",
+
+progress:progress(),
+level:level(),
+
+completedTasks:state.completedTasks || [],
+
+currentTask:task ? {
+id:task.id,
+title:task.title,
+description:task.desc,
+time:task.time,
+level:task.level
+} : null,
+
+mentorStyle:state.mentorStyle || "dz"
+
+};
+
+}
+
+async function sendMentor(){
+
+const input=document.getElementById("mentorInput");
+
+if(!input || !input.value.trim())return;
+
+if(state.mentorLoading)return;
+
+const text=input.value.trim();
+
+if(text.length>4000){
+
+alert("الرسالة طويلة بزاف. حاول تختصرها شوية.");
+
+return;
+}
+
+/*
+نأخذ التاريخ قبل إضافة الرسالة الحالية
+حتى لا تتكرر الرسالة عند السيرفر.
+*/
+
+const history=state.mentorMessages
+.slice(-16)
+.map(m=>({
+role:m.role==="bot" || m.role==="assistant"?"bot":"user",
+text:String(m.text||"")
+}));
+
+state.mentorMessages.push({
+role:"user",
+text:text
+});
+
+state.mentorLoading=true;
+
+save();
+render();
+
+setTimeout(()=>{
+
+const box=document.getElementById("chatBox");
+
+if(box)box.scrollTop=box.scrollHeight;
+
+},50);
+
+try{
+
+const response=await fetch("/api/chat",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+message:text,
+
+history:history,
+
+context:getMentorContext()
+
+})
+
+});
+
+let data=null;
+
+try{
+data=await response.json();
+}catch(e){
+data=null;
+}
+
+if(!response.ok || !data || !data.success){
+
+throw new Error(
+data?.error ||
+"تعذر الاتصال بالمرافق."
+);
+
+}
+
+state.mentorMessages.push({
+
+role:"bot",
+
+text:data.answer || "ما قدرتش نجاوبك حالياً."
+
+});
+
+}catch(error){
+
+console.error("Mentor error:",error);
+
+state.mentorMessages.push({
+
+role:"bot",
+
+text:`ما قدرتش نتصل بالمرافق حالياً.
+
+تأكد بلي الـBackend راه خدام، ومن بعد عاود جرب.
+
+إذا راك تشغل الموقع من السيرفر، افتح الموقع من نفس الرابط تاع السيرفر وما تفتحش index.html مباشرة.`
+
+});
+
+}finally{
+
+state.mentorLoading=false;
+
+save();
+
+render();
+
+setTimeout(()=>{
+
+const box=document.getElementById("chatBox");
+
+if(box)box.scrollTop=box.scrollHeight;
+
+},50);
+
+}
+
+}
+
+function clearMentorChat(){
+
+if(!confirm("متأكد بلي حاب تمسح كامل محادثة المرافق؟"))return;
+
+state.mentorMessages=[{
+
+role:"bot",
+
+text:`رجعنا من البداية 👋
+
+أنا المرافق تاعك.
+
+قولّي واش حاب نعاونك فيه اليوم؟`
+
+}];
+
+save();
+
+render();
+
+}
+
+/* =========================
+   PORTFOLIO
+========================= */
+
+function portfolio(){
+
+const track=getTrack();
+
+const projects=TASKS.filter(t=>
+t.title.toLowerCase().includes("مشروع") &&
+state.completedTasks.includes(t.id)
+);
+
+return `
+<div class="page">
+<div class="container section">
+
+<span class="badge">📁 Portfolio</span>
+
+<div class="portfolio-header" style="margin-top:15px">
+
+<h1>${escapeHTML(state.name)}</h1>
+
+<p style="opacity:.8">
+${track?track.icon+" "+track.name:"مازال ما اخترتش مسار"}
+</p>
+
+<p style="margin-top:15px;opacity:.8">
+هذا Portfolio يتطور مع تقدمك في التربص.
+</p>
+
+</div>
+
+<div class="card" style="margin-top:20px">
+
+<h2>المهارات</h2>
+
+<div class="chips" style="margin-top:15px">
+
+${track?track.interests.slice(0,5).map(x=>
+`<span class="chip selected">${x}</span>`
+).join(""):"مازال ما كاينش"}
+
+</div>
+
+</div>
+
+<div class="card" style="margin-top:20px">
+
+<h2>المشاريع المكتملة</h2>
+
+<div class="project-grid">
+
+${projects.length?projects.map(p=>`
+
+<div class="project">
+
+<div style="font-size:30px">🚀</div>
+
+<h3>${p.title}</h3>
+
+<p style="color:#64748b">
+مشروع مكتمل ضمن مسار التعلم.
+</p>
+
+</div>
+
+`).join(""):`
+
+<div style="grid-column:1/-1;text-align:center;padding:30px">
+
+<div style="font-size:45px">📁</div>
+
+<h3>Portfolio تاعك مازال فارغ</h3>
+
+<p style="color:#64748b">
+كمل أول مشروع باش يبدأ يعمر.
+</p>
+
+</div>
+
+`}
+
+</div>
+
+</div>
+
+<button class="btn btn-primary" style="margin-top:20px"
+onclick="copyPortfolio()">
+🔗 نسخ رابط Portfolio
+</button>
+
+</div>
+</div>
+`;
+}
+
+function copyPortfolio(){
+
+navigator.clipboard?.writeText(location.href+"#portfolio");
+
+alert("تم نسخ رابط تجريبي للـPortfolio.");
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+function profile(){
+
+const track=getTrack();
+
+return `
+<div class="page">
+<div class="container section">
+
+<span class="badge">👤 حسابي</span>
+
+<h1 class="section-title" style="margin-top:15px">
+ملفي الشخصي
+</h1>
+
+<div class="profile-grid">
+
+<div class="card">
+
+<h2>المعلومات</h2>
+
+<div class="question" style="margin-top:20px">
+
+<label>اسمك</label>
+
+<input class="input"
+value="${escapeHTML(state.name)}"
+onchange="state.name=this.value;save()">
+
+</div>
+
+<p><strong>المسار:</strong>
+${track?track.name:"لم يتم الاختيار"}
+</p>
+
+<p><strong>المستوى:</strong> ${level()}/5</p>
+
+<p><strong>التقدم:</strong> ${progress()}%</p>
+
+</div>
+
+<div class="card">
+
+<h2>🏆 الإنجازات</h2>
+
+<div class="badges" style="margin-top:15px">
+
+${state.completedTasks.length>=1?
+`<span class="badge-achievement">🏆 أول مهمة</span>`:""}
+
+${state.completedTasks.length>=3?
+`<span class="badge-achievement">🏆 3 مهام</span>`:""}
+
+${state.completedTasks.length>=5?
+`<span class="badge-achievement">🏆 أول مشروع</span>`:""}
+
+${state.completedTasks.length>=8?
+`<span class="badge-achievement">🏆 Portfolio</span>`:""}
+
+${state.completedTasks.length===0?
+`<p style="color:#64748b">كمل أول مهمة باش تبدأ تجمع الإنجازات.</p>`:""}
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card" style="margin-top:20px">
+
+<h2>⚙️ الإعدادات</h2>
+
+<button class="btn btn-secondary"
+style="margin-top:15px"
+onclick="resetEverything()">
+مسح بيانات التجربة
+</button>
+
+</div>
+
+</div>
+</div>
+`;
+}
+
+function resetEverything(){
+
+if(confirm("هل أنت متأكد؟ سيتم حذف تقدم التجربة.")){
+
+localStorage.removeItem("tariqakState");
+
+location.reload();
+
+}
+
+}
+
+/* =========================
+   RENDER
+========================= */
+
+function render(){
+
+let html=navbar();
+
+switch(state.page){
+
+case"home":
+html+=home();
+break;
+
+case"quiz":
+html+=quiz();
+break;
+
+case"result":
+html+=result();
+break;
+
+case"dashboard":
+html+=dashboard();
+break;
+
+case"mentor":
+html+=mentor();
+break;
+
+case"tasks":
+html+=tasks();
+break;
+
+case"portfolio":
+html+=portfolio();
+break;
+
+case"profile":
+html+=profile();
+break;
+
+default:
+html+=home();
+
+}
+
+document.getElementById("app").innerHTML=html;
+
+}
+
+/* START */
+
+render();
+
+</script>
+
+</body>
+</
